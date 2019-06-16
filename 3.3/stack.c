@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 typedef int Position;
-typedef int ELementType;
+typedef double ELementType;
 typedef struct SNode *PtrToSNode;
 
 
@@ -19,7 +19,7 @@ typedef PtrToSNode Stack;
 
 Stack CreateStack(int MaxSize){
     Stack S=(Stack)malloc(sizeof(struct SNode));
-    S->Data=(ELementType)malloc(MaxSize *sizeof(ELementType));
+    S->Data=malloc(MaxSize *sizeof(ELementType));
     S->Top = -1;
     S->MaxSize=MaxSize;
     return S;
