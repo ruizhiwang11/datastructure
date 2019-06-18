@@ -7,7 +7,7 @@
 
 struct Offsets{
     short int Vert;
-    short int Horize;
+    short int Horiz;
 
 };
 struct MazePosition{
@@ -71,6 +71,34 @@ ElementType Pop(Stack S){
     
 }
 
-int main(){
-    printf("haha");
+void Path(int Maze[MAXMATRIXSIZE],int EXITROW,int EXITCOL){
+    struct Offsets Move[8]={{-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1},{0,-1},{-1,-1}};
+    int Mark[MAXMATRIXSIZE][MAXMATRIXSIZE];
+    Stack S;
+    struct MazePosition P;
+    short int Row ,Col, NextRow, NextCol, Dir;
+    bool Found=false;
+
+    S=CreateStack(MAXSTACKSIZE);
+    Mark[EXITROW][EXITCOL]=1;
+    P.Row=EXITROW;
+    P.Col=EXITCOL;
+    P.Dir=0;
+    Push(S,P);
+
+    while (!IsEmpty(S)&&!Found){
+        P=Pop(S);
+        Row=P.Row;
+        Col=P.Col;
+        Dir=P.Dir;
+        while ((Dir<8 &&!Found))
+        {
+            NextRow=Row+Move[Dir].Vert;
+            NextCol=Row+Move[Dir].Horiz;
+
+            /* code */
+        }
+        
+    }
+
 }
