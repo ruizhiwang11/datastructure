@@ -71,7 +71,7 @@ ElementType Pop(Stack S){
     
 }
 
-void Path(int Maze[MAXMATRIXSIZE],int EXITROW,int EXITCOL){
+void Path(int Maze[][MAXMATRIXSIZE],int EXITROW,int EXITCOL){
     struct Offsets Move[8]={{-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1},{0,-1},{-1,-1}};
     int Mark[MAXMATRIXSIZE][MAXMATRIXSIZE];
     Stack S;
@@ -96,6 +96,14 @@ void Path(int Maze[MAXMATRIXSIZE],int EXITROW,int EXITCOL){
             NextRow=Row+Move[Dir].Vert;
             NextCol=Row+Move[Dir].Horiz;
 
+            if(NextRow==1&&NextCol==1)
+                Found=true;
+            else
+                if(!Maze[NextRow][NextCol] && !Mark[NextRow][NextCol]){
+
+
+                }
+                
             /* code */
         }
         
