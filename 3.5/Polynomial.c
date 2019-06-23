@@ -31,10 +31,10 @@ Polynomial PolyAdd(Polynomial P1, Polynomial P2){
     front=rear;
     while (P1&&P2)
     {   
-        switch (Compare(P1->expon,P2->expon))
+        switch(compare(P1->expon,P2->expon))
         {
         case 1:
-                Attach(P1->coef,P2->coef,&rear);
+                Attach(P1->coef,P1->coef,&rear);
                 P1=P1->link;
             /* code */
             break;
@@ -60,8 +60,9 @@ Polynomial PolyAdd(Polynomial P1, Polynomial P2){
         free(temp);
         return front;
 
-    }
     
+    
+}
 }
 Polynomial Mult(Polynomial P1,Polynomial P2){
     Polynomial t1,t2,P,Rear,t;
@@ -125,11 +126,41 @@ void PrintPoly(Polynomial P){
         if(!flag)
             flag=1;
         else
-            printf("");
+            printf(" ");
         printf("%d %d",P->coef,P->expon);
         P=P->link;
 
         
     }
     
+}
+Polynomial ReadPloy() {
+  int N, c, e;
+  Polynomial P, Rear, t;
+  P = (Polynomial)malloc(sizeof(struct PolyNode));
+  P->link = NULL;
+  Rear = P;
+  scanf("%d", &N);
+  while (N--) {
+    scanf("%d %d", &c, &e);
+    Attach(c, e, &Rear);
+  }
+
+  t = P;
+  P = P->link;
+  free(t);
+  return P;
+}
+
+int main(){
+  Polynomial P1, P2, Psum, Pmulti;
+  P1 = ReadPloy();
+  //printf("haha");
+  P2 = ReadPloy();
+  Psum = PolyAdd(P1, P2);
+ // Pmulti = Mult(P1, P2);
+  //PrintPoly(Pmulti);
+  //printf("\n");
+  PrintPoly(Psum);
+  return 0;
 }
