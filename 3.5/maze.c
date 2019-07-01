@@ -103,10 +103,26 @@ void Path(int Maze[][MAXMATRIXSIZE],int EXITROW,int EXITCOL){
 
 
                 }
+                else ++Dir;
                 
             /* code */
-        }
+        } //end of 8 directions
+
         
+    }//end of searching
+
+    if(Found){
+        printf("Road \n");
+        printf("Row Col \n");
+        printf("1 1\n");
+        printf("%d %d\n",P.Row,P.Col);
+        while(!IsEmpty(S)){
+            printf("%d %d\n",P.Row,P.Col);
+        }
     }
+    else{
+        prinf("No Solution");
+    }
+     
 
 }
