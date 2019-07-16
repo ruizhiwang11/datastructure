@@ -61,7 +61,7 @@ bool AddQ(Queue Q,ElementType X)
 if(Q->MaxSize==Q->Count) 
 { 
 
-return false; 
+    return false; 
 } 
 Q->Count++; 
 Q->Data[(Q->Front+Q->Count)%Q->MaxSize]=X; 
